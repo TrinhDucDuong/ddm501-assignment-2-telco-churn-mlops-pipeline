@@ -1,0 +1,14 @@
+{
+  "pages": 13,
+  "name_verified": true,
+  "student_id_verified": true,
+  "unresolved_markers": 0,
+  "out_of_page_text_spans": [],
+  "tests": {
+    "tests": 23,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "visual_review": "All final pages rendered and inspected; tables, diagrams, code blocks and identity text are legible without clipping."
+}

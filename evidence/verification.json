@@ -1,0 +1,44 @@
+{
+  "executed_utc": "2026-10-03T16:48:09.345259+00:00",
+  "python": "3.10.11",
+  "platform": "Windows-10-10.0.26300-SP0",
+  "executable": "C:\\Users\\tdd23\\OneDrive\\Desktop\\MyWorkSpace\\FSB\\K3\\DDM501\\Turtorial\\Individual_Assignment\\assignment_2\\.venv\\Scripts\\python.exe",
+  "project": "assignment_2",
+  "dependencies": {
+    "exit_code": 0,
+    "evidence": "pip-check.txt"
+  },
+  "lint": {
+    "exit_code": 0,
+    "evidence": "lint.txt"
+  },
+  "tests": {
+    "exit_code": 0,
+    "evidence": "pytest.txt"
+  },
+  "training": {
+    "exit_code": 0,
+    "evidence": "pipeline.txt"
+  },
+  "http": {
+    "transport": "real HTTP over loopback",
+    "health": {
+      "status": "ok",
+      "model": "model.joblib"
+    },
+    "valid_status": 200,
+    "invalid_status": 422,
+    "response": {
+      "predictions": [
+        {
+          "customerID": "7590-VHVEG",
+          "churn_probability": 0.5888676123891255
+        },
+        {
+          "customerID": "5575-GNVDE",
+          "churn_probability": 0.058808264114127554
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,21 @@
+seed: 42
+capacity: 0.2
+data_path: data/telco.csv
+output_dir: artifacts
+experiment_name: ddm501-telco-churn
+model_name: ddm501-telco-churn
+gates:
+  min_average_precision: 0.60
+  min_lift: 2.0
+  min_ap_gain: 0.05
+experiments:
+  - {name: E01-prior, algorithm: dummy}
+  - {name: E02-lr-c001, algorithm: logistic, C: 0.01}
+  - {name: E03-lr-c01, algorithm: logistic, C: 0.1}
+  - {name: E04-lr-c1, algorithm: logistic, C: 1.0}
+  - {name: E05-lr-c10, algorithm: logistic, C: 10.0}
+  - {name: E06-lr-balanced, algorithm: logistic, C: 1.0, class_weight: balanced}
+  - {name: E07-rf-shallow, algorithm: forest, n_estimators: 100, max_depth: 6, min_samples_leaf: 5}
+  - {name: E08-rf-deeper, algorithm: forest, n_estimators: 200, max_depth: 12, min_samples_leaf: 5}
+  - {name: E09-gb-slow, algorithm: boosting, n_estimators: 100, max_depth: 2, learning_rate: 0.05}
+  - {name: E10-gb-fast, algorithm: boosting, n_estimators: 150, max_depth: 2, learning_rate: 0.1}

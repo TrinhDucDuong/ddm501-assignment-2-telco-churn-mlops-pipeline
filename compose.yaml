@@ -1,0 +1,9 @@
+services:
+  airflow-test:
+    build:
+      context: .
+      dockerfile: Dockerfile.airflow
+    image: ddm501-individual2-airflow:local
+    volumes:
+      - ./artifacts/docker:/app/artifacts
+    command: bash -c "airflow db migrate && airflow dags test telco_churn_training 2026-10-03 && python /app/scripts/check_airflow_run.py"

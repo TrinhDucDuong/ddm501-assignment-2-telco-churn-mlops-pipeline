@@ -1,0 +1,8 @@
+{
+  "url": "https://raw.githubusercontent.com/IBM/telco-customer-churn-on-icp4d/master/data/Telco-Customer-Churn.csv",
+  "sha256": "16320c9c1ec72448db59aa0a26a0b95401046bef5d02fd3aeb906448e3055e91",
+  "retrieved_utc": "2026-10-03",
+  "description": "IBM fictional Telco customer churn sample; no prospective timestamps",
+  "source_repository": "https://github.com/IBM/telco-customer-churn-on-icp4d",
+  "license_url": "https://github.com/IBM/telco-customer-churn-on-icp4d/blob/master/LICENSE"
+}

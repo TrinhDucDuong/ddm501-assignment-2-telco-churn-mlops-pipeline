@@ -1,0 +1,10 @@
+{
+  "folder": "assignment_2_telco_churn_mlops_pipeline",
+  "tracking_configured": true,
+  "registered_model_loaded": true,
+  "model_version": 3,
+  "probabilities": [
+    0.5888676123891255,
+    0.058808264114127554
+  ]
+}

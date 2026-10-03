@@ -1,0 +1,8 @@
+{
+  "name": "ddm501-telco-churn",
+  "version": 3,
+  "run_id": "d7e93b8005774fb58ef013b623c3fb5c",
+  "data_sha256": "16320c9c1ec72448db59aa0a26a0b95401046bef5d02fd3aeb906448e3055e91",
+  "artifact_sha256": "debaf12be48b159aa3250815ec8c9d4508d07db9f89ae1f69ea9b9cffc7a0c4f",
+  "scope": "local demonstration only; production approval and A/B test required"
+}

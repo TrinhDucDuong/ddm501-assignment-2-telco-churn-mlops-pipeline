@@ -1,0 +1,13 @@
+{
+  "state": "success",
+  "image": "ddm501-individual2:local",
+  "python": "3.11.16",
+  "sklearn": "1.7.2",
+  "winner": "E05-lr-c10",
+  "rows": 7043,
+  "scored_rows": 1409,
+  "contact_rows": 282,
+  "model_version": 1,
+  "source_hash_matches_windows_run": true,
+  "sqlalchemy_pin": "2.0.54"
+}

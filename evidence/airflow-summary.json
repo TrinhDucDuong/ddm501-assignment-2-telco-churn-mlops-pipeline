@@ -1,0 +1,18 @@
+{
+  "state": "success",
+  "successful_tasks": 7,
+  "tasks": {
+    "ingest": "success",
+    "validate": "success",
+    "prepare": "success",
+    "train": "success",
+    "evaluate": "success",
+    "deploy": "success",
+    "score": "success"
+  },
+  "dag_id": "telco_churn_training",
+  "run_id": "manual__2026-10-03T00:00:00+00:00",
+  "scored_rows": 1409,
+  "contact_rows": 282,
+  "evidence": "Airflow metadata DB states + persisted scored CSV"
+}

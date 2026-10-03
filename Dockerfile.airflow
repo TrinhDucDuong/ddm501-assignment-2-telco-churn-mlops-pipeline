@@ -1,0 +1,15 @@
+FROM apache/airflow:2.10.2
+USER airflow
+RUN pip install --no-cache-dir --timeout 180 --retries 5 "apache-airflow==2.10.2" \
+    "numpy==2.2.6" "pandas==2.3.3" "scikit-learn==1.7.2" \
+    "mlflow==2.22.0" "PyYAML==6.0.3" "joblib==1.6.0" "sqlalchemy==1.4.54"
+WORKDIR /app
+COPY --chown=airflow:root churn /app/churn
+COPY --chown=airflow:root config.yaml /app/config.yaml
+COPY --chown=airflow:root data /app/data
+COPY --chown=airflow:root dags /opt/airflow/dags
+COPY --chown=airflow:root scripts/check_airflow_run.py /app/scripts/check_airflow_run.py
+ENV PYTHONPATH=/app
+ENV AIRFLOW__CORE__LOAD_EXAMPLES=False
+ENV AIRFLOW__CORE__EXECUTOR=SequentialExecutor
+ENV CHURN_OUTPUT_DIR=/app/artifacts

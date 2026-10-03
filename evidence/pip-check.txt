@@ -1,0 +1,5 @@
+COMMAND: python -m pip check
+EXIT: 0
+
+No broken requirements found.
+

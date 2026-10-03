@@ -1,0 +1,9 @@
+{
+  "folder": "ddm501_assignment_2_telco_churn_mlops_pipeline",
+  "python": "C:\\Users\\tdd23\\OneDrive\\Desktop\\MyWorkSpace\\FSB\\K3\\DDM501\\Turtorial\\Individual_Assignment\\ddm501_assignment_2_telco_churn_mlops_pipeline\\.venv\\Scripts\\python.exe",
+  "model_loaded": true,
+  "probabilities": [
+    0.5888676123891255,
+    0.058808264114127554
+  ]
+}

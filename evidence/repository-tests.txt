@@ -1,0 +1,34 @@
+.......................                                                  [100%]
+============================== warnings summary ===============================
+.venv\lib\site-packages\starlette\testclient.py:37
+  C:\Users\tdd23\OneDrive\Desktop\MyWorkSpace\FSB\K3\DDM501\Turtorial\Individual_Assignment\ddm501-assignment-2-telco-churn-mlops-pipeline\.venv\lib\site-packages\starlette\testclient.py:37: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
+    _PortalFactoryType = typing.Callable[[], typing.ContextManager[anyio.abc.BlockingPortal]]
+
+tests/test_mlops.py::test_winner_is_validation_only_with_speed_tiebreak
+tests/test_mlops.py::test_pipeline_registers_model_and_retry_reuses_version[False]
+tests/test_mlops.py::test_pipeline_registers_model_and_retry_reuses_version[False]
+tests/test_mlops.py::test_pipeline_registers_model_and_retry_reuses_version[False]
+tests/test_mlops.py::test_pipeline_registers_model_and_retry_reuses_version[False]
+  C:\Users\tdd23\OneDrive\Desktop\MyWorkSpace\FSB\K3\DDM501\Turtorial\Individual_Assignment\ddm501-assignment-2-telco-churn-mlops-pipeline\.venv\lib\site-packages\mlflow\utils\pydantic_utils.py:33: PydanticDeprecatedSince212: Using `@model_validator` with mode='after' on a classmethod is deprecated. Instead, use an instance method. See the documentation at https://docs.pydantic.dev/2.13/concepts/validators/#model-after-validator. Deprecated in Pydantic V2.12 to be removed in V3.0.
+    return pydantic_model_validator(mode=mode)(func)
+
+tests/test_mlops.py::test_winner_is_validation_only_with_speed_tiebreak
+  C:\Users\tdd23\OneDrive\Desktop\MyWorkSpace\FSB\K3\DDM501\Turtorial\Individual_Assignment\ddm501-assignment-2-telco-churn-mlops-pipeline\.venv\lib\site-packages\mlflow\gateway\config.py:454: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    class Route(ConfigModel):
+
+tests/test_mlops.py::test_pipeline_registers_model_and_retry_reuses_version[False]
+  C:\Users\tdd23\OneDrive\Desktop\MyWorkSpace\FSB\K3\DDM501\Turtorial\Individual_Assignment\ddm501-assignment-2-telco-churn-mlops-pipeline\.venv\lib\site-packages\mlflow\types\chat.py:162: PydanticDeprecatedSince20: `min_items` is deprecated and will be removed, use `min_length` instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    stop: Optional[list[str]] = Field(None, min_items=1)
+
+tests/test_mlops.py::test_pipeline_registers_model_and_retry_reuses_version[False]
+  C:\Users\tdd23\OneDrive\Desktop\MyWorkSpace\FSB\K3\DDM501\Turtorial\Individual_Assignment\ddm501-assignment-2-telco-churn-mlops-pipeline\.venv\lib\site-packages\mlflow\types\chat.py:216: PydanticDeprecatedSince20: `min_items` is deprecated and will be removed, use `min_length` instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    messages: list[ChatMessage] = Field(..., min_items=1)
+
+tests/test_mlops.py::test_pipeline_registers_model_and_retry_reuses_version[False]
+  C:\Users\tdd23\OneDrive\Desktop\MyWorkSpace\FSB\K3\DDM501\Turtorial\Individual_Assignment\ddm501-assignment-2-telco-churn-mlops-pipeline\.venv\lib\site-packages\mlflow\types\chat.py:217: PydanticDeprecatedSince20: `min_items` is deprecated and will be removed, use `min_length` instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    tools: Optional[list[ChatTool]] = Field(None, min_items=1)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+- generated xml file: C:\Users\tdd23\OneDrive\Desktop\MyWorkSpace\FSB\K3\DDM501\Turtorial\Individual_Assignment\ddm501-assignment-2-telco-churn-mlops-pipeline\evidence\repository-pytest.xml -
+23 passed, 10 warnings in 14.81s
+

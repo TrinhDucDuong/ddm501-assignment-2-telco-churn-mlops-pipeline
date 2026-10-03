@@ -1,0 +1,29 @@
+{
+  "project": "ddm501-assignment-2-telco-churn-mlops-pipeline",
+  "python": "C:\\Users\\tdd23\\OneDrive\\Desktop\\MyWorkSpace\\FSB\\K3\\DDM501\\Turtorial\\Individual_Assignment\\ddm501-assignment-2-telco-churn-mlops-pipeline\\.venv\\Scripts\\python.exe",
+  "tests": "passed",
+  "lint": "passed",
+  "dependencies": "passed",
+  "registry_load": "passed",
+  "http": {
+    "transport": "real HTTP over loopback",
+    "health": {
+      "status": "ok",
+      "model": "model.joblib"
+    },
+    "valid_status": 200,
+    "invalid_status": 422,
+    "response": {
+      "predictions": [
+        {
+          "customerID": "7590-VHVEG",
+          "churn_probability": 0.5888676123891255
+        },
+        {
+          "customerID": "5575-GNVDE",
+          "churn_probability": 0.058808264114127554
+        }
+      ]
+    }
+  }
+}

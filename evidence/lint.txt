@@ -1,0 +1,5 @@
+COMMAND: python -m ruff check churn tests scripts
+EXIT: 0
+
+All checks passed!
+
