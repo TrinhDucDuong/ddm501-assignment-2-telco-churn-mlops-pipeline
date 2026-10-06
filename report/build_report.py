@@ -39,6 +39,14 @@ NUMBER = 2 if (ROOT / "dags").exists() else 1
 INK = "#163444"
 TEAL = "#087f8c"
 WIDTH = A4[0] - 100
+REPOSITORY = "https://github.com/TrinhDucDuong/" + (
+    "ddm501-assignment-1-telco-churn-system-design"
+    if NUMBER == 1 else "ddm501-assignment-2-telco-churn-mlops-pipeline"
+)
+SOURCE_COMMIT = (
+    "290f2fd761fea87338166124eb507fe30c162a26"
+    if NUMBER == 1 else "627989c424cd765635af5249a4a3819e964be181"
+)
 
 
 def diagram(filename: str, nodes: list, edges: list, title: str, height: float = 4.2) -> None:
@@ -304,6 +312,11 @@ def inline(text: str) -> str:
     text = escape(text)
     text = re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", text)
     text = re.sub(r"`([^`]+)`", r'<font name="Mono">\1</font>', text)
+    text = re.sub(
+        r"\[([^\]]+)\]\((https://[^\s)]+)\)",
+        r'<link href="\2" color="#087f8c"><u>\1</u></link>',
+        text,
+    )
     return text
 
 
@@ -372,12 +385,16 @@ def build() -> None:
         ),
         Spacer(1, 48),
         Paragraph(
-            "<b>Trịnh Đức Dương</b><br/>Student ID: 25ms13290<br/>Course: DDM501 - AI in DevOps, DataOps, MLOps<br/>Submission: Individual written report<br/>3 October 2026",
+            "<b>Trịnh Đức Dương</b><br/>Student ID: 25ms13290<br/>Course: DDM501 - AI in DevOps, DataOps, MLOps<br/>Submission: Individual written report<br/>Revised: 6 October 2026",
             body,
         ),
-        Spacer(1, 32),
+        Spacer(1, 24),
+        Paragraph("<b>Companion GitHub repository</b>", small),
+        Paragraph(f'<link href="{REPOSITORY}" color="{TEAL}"><u>{REPOSITORY}</u></link>', small),
         Paragraph(
-            "Includes executable code, measured evaluation, tests and independently reproducible project artifacts.",
+            f'Implementation snapshot: <link href="{REPOSITORY}/tree/{SOURCE_COMMIT}" '
+            f'color="{TEAL}"><u>{SOURCE_COMMIT[:7]}</u></link>. '
+            "The PDF is self-contained; code, data and execution evidence supplement the report.",
             small,
         ),
         PageBreak(),

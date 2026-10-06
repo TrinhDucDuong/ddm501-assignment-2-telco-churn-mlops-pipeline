@@ -2,7 +2,7 @@
 ## Executive brief and continuity
 This assignment extends the telecom retention system designed in Assignment 1. The problem is to rank customers by churn risk so a retention team can allocate a limited contact budget. The original architecture separated validated snapshots, train-only transformations, model evaluation, controlled serving and feedback. This submission turns those boundaries into executable stages and evaluates ten configurations with MLflow tracking and an Airflow DAG.
 
-The scenario, public IBM fictional sample, nine predictors, random seed 42 and 60/20/20 split remain unchanged. Assignment 1's Logistic Regression C=1 model becomes experiment E04, allowing a directly traceable comparison. The new capabilities are a checksum gate, persisted stage outputs, systematic validation comparisons, a model registry, a guarded local release and scored customer export. Both projects contain independent copies of their required code and data and can become separate Git repositories.
+The scenario, public IBM fictional sample, nine predictors, random seed 42 and 60/20/20 split remain unchanged. Assignment 1's Logistic Regression C=1 model becomes experiment E04, allowing a directly traceable comparison. The new capabilities are a checksum gate, persisted stage outputs, systematic validation comparisons, a model registry, a guarded local release and scored customer export. Both projects contain independent copies of their required code and data and are published as separate Git repositories. The [Assignment 1 design report](https://github.com/TrinhDucDuong/ddm501-assignment-1-telco-churn-system-design/blob/290f2fd761fea87338166124eb507fe30c162a26/DDM501_Assignment1_25ms13290_TrinhDucDuong.pdf) is the baseline design referenced here.
 
 The distinction between demonstration and deployment remains important. The dataset has no temporal snapshots, the labels do not prove prospective validity, and no real retention intervention is observed. The business goal remains positive incremental retained margin under a randomized pilot. This pipeline demonstrates reproducible offline model selection and local MLOps execution; it does not claim realized revenue or production availability.
 
@@ -237,13 +237,14 @@ CHURN_DATA_PATH and CHURN_OUTPUT_DIR override configured paths; MLFLOW_TRACKING_
 
 ## 8. Reproducibility and versioning
 ### 8.1 Code, data and model lineage
-Use a protected main branch for reviewed releases and short-lived feature branches for changes. Pull requests should run unit/integration tests, lint and a small pipeline check. Tag approved releases with semantic versions and link a Git commit, data hash, configuration and model version in the release manifest. The supplied project is ready for a separate repository but has not been pushed. The following are proposed future commands, not claims that a release has already been published.
+The project is published in its own [GitHub repository](https://github.com/TrinhDucDuong/ddm501-assignment-2-telco-churn-mlops-pipeline) on main. The [implementation snapshot 627989c](https://github.com/TrinhDucDuong/ddm501-assignment-2-telco-churn-mlops-pipeline/tree/627989c424cd765635af5249a4a3819e964be181) preserves the code and evidence underlying this report. The existing initial commit was retained. A checked-in GitHub Actions workflow defines dependency installation, lint, tests and pipeline verification; successful local checks do not by themselves establish a successful hosted CI run.
+
+For future development, use short-lived feature branches, reviewed pull requests and a protected main branch. Branch protection and release tags are proposed governance controls, not claimed existing repository settings. Link each approved release to a Git commit, data hash, configuration and registry version. From a cloned repository, the following illustrates a future feature and release workflow; v1.0.0 has not been published as part of this submission.
 
 ```bash
-git init -b main
-git add .
-git commit -m "Add reproducible DDM501 churn pipeline"
 git switch -c feature/new-temporal-cohort
+git add config.yaml churn tests
+git commit -m "Evaluate a new temporal cohort"
 # After review, tests and merge:
 git tag -a v1.0.0 -m "Validated churn pipeline release"
 ```
@@ -280,6 +281,32 @@ The design supports auditable offline development: data is fingerprinted, transf
 The next production gates are a dated dataset with a 30-day forward label, chronological evaluation, subgroup and calibration analysis, measured load/cost at intended volume, authenticated inference, consent-aware CRM integration and randomized business evaluation. A centralized registry and immutable release manifest should coordinate canary deployment and rollback. Drift is an investigation signal, not permission to replace a model automatically.
 
 The experiment winner's apparent improvement over Assignment 1 is tiny, and the holdout was already visible in the earlier assignment. This is a continuity limitation, not a fresh independent replication. No additional tuning was based on holdout outcomes. A genuinely unseen future cohort is needed to estimate generalization after model selection and business-policy design.
+
+## 10. Submission evidence and reproduction
+The submitted written report is DDM501_Assignment2_25ms13290_TrinhDucDuong.pdf. The pipeline diagram, ten-configuration experiment matrix and measured results, DAG, MLflow snippets, configuration and versioning examples are included in the PDF itself. The repository supplements the written analysis with complete executable files.
+
+Repository: [ddm501-assignment-2-telco-churn-mlops-pipeline](https://github.com/TrinhDucDuong/ddm501-assignment-2-telco-churn-mlops-pipeline). Clone it independently; Assignment 1 is a conceptual predecessor and is not a runtime dependency. From the repository root on Windows with Python 3.10 or 3.11:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File setup.ps1
+./.venv/Scripts/python.exe scripts/verify.py
+```
+
+This runs dependency checks, lint, tests, the full ten-trial pipeline and a real HTTP smoke test. Inspect generated artifacts/experiments.csv, summary.json and champion.json for experiment, holdout and model lineage. With Docker Desktop using Linux containers, execute the orchestration separately:
+
+```powershell
+docker compose build airflow-test
+docker compose run --rm airflow-test
+```
+
+| Completed check | Recorded result | Published evidence |
+|---|---|---|
+| Unit and integration tests | 23 passed; no failures | [Test output](https://github.com/TrinhDucDuong/ddm501-assignment-2-telco-churn-mlops-pipeline/blob/627989c424cd765635af5249a4a3819e964be181/evidence/repository-tests.txt) |
+| Real HTTP and registry loading | Health OK; valid 200; invalid 422; registered model loaded | [Verification record](https://github.com/TrinhDucDuong/ddm501-assignment-2-telco-churn-mlops-pipeline/blob/627989c424cd765635af5249a4a3819e964be181/evidence/repository-check.json) |
+| Controlled experiment matrix | Ten configurations; E05 selected on validation AP | [Measured experiment CSV](https://github.com/TrinhDucDuong/ddm501-assignment-2-telco-churn-mlops-pipeline/blob/627989c424cd765635af5249a4a3819e964be181/evidence/experiments.csv) |
+| Real Airflow DAG execution | 7/7 tasks successful; 1,409 scores; 282 contact flags | [Airflow summary](https://github.com/TrinhDucDuong/ddm501-assignment-2-telco-churn-mlops-pipeline/blob/627989c424cd765635af5249a4a3819e964be181/evidence/airflow-summary.json) |
+
+These are recorded completed runs. New run IDs, durations and registry versions may differ. The report revision updates documentation and repository links without rerunning model selection or changing the conclusions. Runtime environments, generated models and MLflow databases are rebuilt locally and excluded from Git; the published evidence remains readable without rebuilding them.
 
 ## References and rubric map
 [1] IBM. Telco Customer Churn sample. https://github.com/IBM/telco-customer-churn-on-icp4d

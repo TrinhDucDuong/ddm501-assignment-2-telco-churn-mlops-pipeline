@@ -1,5 +1,6 @@
 {
-  "pages": 13,
+  "review_date": "2026-10-06",
+  "pages": 14,
   "name_verified": true,
   "student_id_verified": true,
   "unresolved_markers": 0,
@@ -10,5 +11,43 @@
     "errors": 0,
     "skipped": 0
   },
-  "visual_review": "All final pages rendered and inspected; tables, diagrams, code blocks and identity text are legible without clipping."
+  "test_evidence": "evidence/repository-pytest.xml (recorded execution; report-only revision)",
+  "repository": "https://github.com/TrinhDucDuong/ddm501-assignment-2-telco-churn-mlops-pipeline",
+  "clickable_repository_on_cover": true,
+  "external_link_annotations": 10,
+  "unique_external_links": 7,
+  "external_link_checks": [
+    {
+      "url": "https://github.com/TrinhDucDuong/ddm501-assignment-1-telco-churn-system-design/blob/290f2fd761fea87338166124eb507fe30c162a26/DDM501_Assignment1_25ms13290_TrinhDucDuong.pdf",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/TrinhDucDuong/ddm501-assignment-2-telco-churn-mlops-pipeline",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/TrinhDucDuong/ddm501-assignment-2-telco-churn-mlops-pipeline/blob/627989c424cd765635af5249a4a3819e964be181/evidence/airflow-summary.json",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/TrinhDucDuong/ddm501-assignment-2-telco-churn-mlops-pipeline/blob/627989c424cd765635af5249a4a3819e964be181/evidence/experiments.csv",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/TrinhDucDuong/ddm501-assignment-2-telco-churn-mlops-pipeline/blob/627989c424cd765635af5249a4a3819e964be181/evidence/repository-check.json",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/TrinhDucDuong/ddm501-assignment-2-telco-churn-mlops-pipeline/blob/627989c424cd765635af5249a4a3819e964be181/evidence/repository-tests.txt",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/TrinhDucDuong/ddm501-assignment-2-telco-churn-mlops-pipeline/tree/627989c424cd765635af5249a4a3819e964be181",
+      "status": 200
+    }
+  ],
+  "toc_destinations_verified": true,
+  "metrics_match_recorded_evidence": true,
+  "visual_review": "All final pages rendered with Poppler and inspected; no clipping or overlapping text; tables, diagrams, code and Vietnamese identity are legible.",
+  "submission_requirement": "Written PDF report; filename verified against assignment brief; repository provides supplementary code and execution evidence."
 }
